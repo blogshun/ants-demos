@@ -118,6 +118,41 @@ public class DemosApplication {
 | @EnableRedisPlugin  | 开启Redis插件|
 | @EnableSQLMapPlugin  | 开启SqlMap插件 |
 
+### Restful注解
+
+| 注解         |  描述  |
+| ------------- | -----|
+| @Controller | 标识控制器类 |
+| @DELETE、@POS、@GET、@PUT | restful请求标注 |
+| @Param  | 参数绑定, 该注解表示参数必传 |
+| @PathVariable  | url参数绑定到方法参数 |
+| @Entity  | 标注类为实体类, 可以自动接收Request参数 |
+
+### 插件注解
+
+| 注解         |  描述  |
+| ------------- | -----|
+| @FixedDelay | Scheduler插件, 任务调度类注解设置调度时间 |
+| @Column | Orm插件标, 注实体类, 属性对应数据库字段 |
+| @Id  | Orm插件标, 标注主键 |
+| @Table | Orm插件标, 标注数据库表名称 |
+| @JmsListener  | AcitveMq插件, 标注消费者监听类 |
+| @Cacheable  | Ehcache插件, 存储对象到缓存 |
+| @CacheEvict  | Ehcache插件, 标注方法清空缓存 |
+| @CachePut  | Ehcache插件, 标注方法更新缓存 |
+
+### 其他注解
+
+| 注解         |  描述  |
+| ------------- | -----|
+| @Aop | 标注先执行拦截器 |
+| @Uop | 标注解除拦截器拦截 |
+| @Service  | 标注对象实例化为单例对象 |
+| @Autowired | 构造注入@Service标注的对象 |
+| @Value  | 注入内存配置文件属性, 等价于 `Prop.get()` |
+| @Tx  | 标注该方法开始事务, 支持多数据源回滚 |
+| @Source  | 标注类中该属性是属于数据库操作类 |
+
 
 # 联系作者
 QQ:358113099
