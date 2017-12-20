@@ -3,31 +3,31 @@ Ants框架常用的一些Demo例子，以及其他插件...
 
 #### 文档目录
 
-- [启动Demo](./README.md#启动Demo)
+- [Jetty、Tomcat启动](./README.md#Jetty&Tomcat启动)
 - [注解介绍](./DOC.md#mvc)
 
-# 启动Demo
+# Jetty、Tomcat启动
 
 **Jetty 启动**
 
 需要添加如下依赖, 推荐版本8.1.7.v20120910
 
 ```xml
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>8.1.7.v20120910</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>8.1.7.v20120910</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-jsp</artifactId>
-            <version>8.1.7.v20120910</version>
-        </dependency>
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-server</artifactId>
+    <version>8.1.7.v20120910</version>
+</dependency>
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-webapp</artifactId>
+    <version>8.1.7.v20120910</version>
+</dependency>
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-jsp</artifactId>
+    <version>8.1.7.v20120910</version>
+</dependency
 ```
 
 **代码案例**
@@ -62,16 +62,16 @@ public class DemosApplication {
 需要添加如下依赖, 推荐版本8.0.28, 其他websocket功能扩展还需要添加相应maven依赖
 
 ```xml
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>8.0.28</version>
-         </dependency>
-         <dependency>
-             <groupId>org.apache.tomcat.embed</groupId>
-             <artifactId>tomcat-embed-logging-juli</artifactId>
-             <version>8.0.28</version>
-         </dependency>
+<dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-core</artifactId>
+    <version>8.0.28</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-logging-juli</artifactId>
+    <version>8.0.28</version>
+</dependency>
 ```
 
 **代码案例**
@@ -100,6 +100,26 @@ public class DemosApplication {
 }
 
 ```
+
+
+# 注解介绍
+
+### 启动注解（只能用在启动类上）
+
+| 指令         |  描述  |
+| ------------- | -----|
+
+| RequiresPermissions | 需要权限才能访问这个action |
+
+| RequiresRoles  | 需要角色才能访问这个action|
+
+| RequiresAuthentication  | 需要授权才能访问这个action，即：`SecurityUtils.getSubject().isAuthenticated()` |
+
+| RequiresUser  | 获取到用户信息才能访问这个action，即：`SecurityUtils.getSubject().getPrincipal() != null ` |
+
+| RequiresGuest  | 和RequiresUser相反 |
+
+
 
 # 联系作者
 QQ:358113099
