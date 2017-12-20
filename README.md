@@ -5,12 +5,13 @@ Ants框架常用的一些Demo例子，以及其他插件...
 
 - [Jetty、Tomcat启动](./README.md#Jetty、Tomcat启动)
 - [注解介绍](./README.md#注解介绍)
-- [Restful](./README.md##Restful)
+- [加载类注解](./README.md#加载类注解)
+- [Restful](./README.md#Restful)
 - [参数绑定以及校验](./README.md#参数绑定以及校验)
 - [插件](./README.md#插件)
 	- [Template模板引擎插件](./README.md#Template模板引擎插件)
 	- [ORMCriteria](./README.md#ORMCriteria)
-	- [SqlMap](./README.md##SqlMap)
+	- [SqlMap](./README.md#SqlMap)
 	- [Scheduler任务调度](./README.md#Scheduler任务调度)
 	- [Db操作](./README.md#Db操作)
 	- [ActiveMq队列](./README.md#ActiveMq队列)
@@ -167,7 +168,75 @@ public class DemosApplication {
 | @Source  | 标注类中该属性是属于数据库操作类 |
 
 
+# 加载类注解
+**代码案例**
+```java
+package com.ants.demos;
+
+
+import com.ants.common.annotation.service.Application;
+import com.ants.core.startup.JTomcat;
+
+/**
+ * Tomcat 方式启动
+ * @author MrShun
+ * @version 1.0
+ * @Date 2017/12/20
+ */
+@Application
+public class DemosApplication {
+
+    public static void main(String[] args) {
+        //第一个参数配置类
+        //第二个参数端口
+        //第三个参数是否打开浏览器调试
+        JTomcat.run(DemosApplication.class, 80, true);
+    }
+}
+
+```
+
+
 # Restful
+**代码案例**
+```java
+package com.ants.demos.controller;
+
+import com.ants.common.annotation.action.*;
+
+/**
+ * @author MrShun
+ * @version 1.0
+ * @Date 2017/12/20
+ */
+@Controller("/restful")
+public class RestfulDemoController {
+
+
+    @GET("/get")
+    public Object get(){
+        return "ants get is ok!";
+    }
+
+    @POST("/post")
+    public Object post(){
+        return "ants post is ok!";
+    }
+
+    @PUT("/put")
+    public Object put(){
+        return "ants put is ok!";
+    }
+
+    @DELETE("/delete")
+    public Object delete(){
+        return "ants delete is ok!";
+    }
+}
+
+```
+
+
 # 参数绑定以及校验
 
 # 插件
