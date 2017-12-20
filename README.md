@@ -108,15 +108,10 @@ public class DemosApplication {
 
 | 指令         |  描述  |
 | ------------- | -----|
-
 | RequiresPermissions | 需要权限才能访问这个action |
-
 | RequiresRoles  | 需要角色才能访问这个action|
-
 | RequiresAuthentication  | 需要授权才能访问这个action，即：`SecurityUtils.getSubject().isAuthenticated()` |
-
 | RequiresUser  | 获取到用户信息才能访问这个action，即：`SecurityUtils.getSubject().getPrincipal() != null ` |
-
 | RequiresGuest  | 和RequiresUser相反 |
 
 
