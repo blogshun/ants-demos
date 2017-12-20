@@ -1,6 +1,8 @@
 # Ants框架Demo案例
 Ants框架常用的一些Demo例子，以及其他插件...
 
+具体详细文档请移步, 文档URL地址 ： [点击这里](http://shunblog.cn/)
+
 #### 文档目录
 
 - [Jetty、Tomcat启动](./README.md#Jetty、Tomcat启动)
@@ -198,6 +200,25 @@ public class DemosApplication {
 
 
 # Restful
+控制层 [@Controller]
+拥有和Spring基本一样的功能, 却减少了很多配置, 将Srping里面的`@Controller @RequestMapping`合二唯一
+例如`@Controller("user")`
+<p><b style="color:red">注意</b>：和Spring对比方法注解上面减少了@ResponseBody 或者 类上面@RestController, 返回类型由方法返回值决定, 我在写一遍如下：</p>
+        <p>String 类型：会根据常量里面的配置放回响应的视图类型, 默认是jsp</p>
+        <p>Object 类型：当返回Object时候会去掉值为null的属性</p>
+        <p>T 类型：会保留所有属性输出</p>
+        <p>Resource 类型：当new Resource("a.txt", data) 时, 可以将resouce下面的文件当做模板进行读取然后响应输出, 例如：druid管理页面, 加强后就是一套模板引擎</p>
+        <p>Json 类型：会包装一层响应吗输出</p>
+        <div style="margin-left:50px;">
+            <p>成功：当Json.success("hello world java!") 时, <code>{"message":"ok","data":"hello world
+                java!","code":0}</code></p>
+            <p>失败：当Json.fail("code is error!") 时, 或用使用全局枚举 Json.fail(ResponseCode.ARGUMENTS_ERROR), <code>{"message":"code
+                is error!","code":107}</code></p>
+            <p>数据值为空：当Json.succcess(null) 时, 会报错<code>{"message":"response data is null","code":109}</code></p>
+            <p>异常：当Json.exception(ResponseCode.ARGUMENTS_ERROR) 时, 会进行日志记录, 并报错<code>{"message":"request argument is
+                error","code":1011}</code></p>
+        </div>
+
 **代码案例**
 ```java
 package com.ants.demos.controller;
@@ -342,8 +363,19 @@ public class RestfulDemoController {
 # Redis缓存
 
 # Ehcache缓存
+需要添加如下依赖
+```xml
+<dependency>
+    <groupId>net.sf.ehcache</groupId>
+    <artifactId>ehcache-core</artifactId>
+    <version>2.6.6</version>
+</dependency>
+```
 
+**代码案例**
+```java
 
+```
 # 代码生成器
 
 # 联系作者
