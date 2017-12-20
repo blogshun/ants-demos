@@ -8,7 +8,7 @@ Ants框架常用的一些Demo例子，以及其他插件...
 - [Restful](./README.md##Restful)
 - [参数绑定以及校验](./README.md#参数绑定以及校验)
 - [插件](./README.md#插件)
-	- [Template模板引擎插件](./README.md##Template模板引擎插件)
+	- [Template模板引擎插件](./README.md#插件#Template模板引擎插件)
 	- [ORMCriteria](./README.md##ORMCriteria)
 	- [SqlMap](./README.md##SqlMap)
 	- [Scheduler任务调度](./README.md##Scheduler任务调度)
