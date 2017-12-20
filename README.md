@@ -3,8 +3,8 @@ Ants框架常用的一些Demo例子，以及其他插件...
 
 #### 文档目录
 
-- [Jetty、Tomcat启动](./README.md#Jetty&Tomcat启动)
-- [注解介绍](./DOC.md#mvc)
+- [Jetty、Tomcat启动](./README.md#Jetty、Tomcat启动)
+- [注解介绍](./README.md#注解介绍)
 
 # Jetty、Tomcat启动
 
