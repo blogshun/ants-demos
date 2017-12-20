@@ -106,14 +106,17 @@ public class DemosApplication {
 
 ### 启动注解（只能用在启动类上）
 
-| 指令         |  描述  |
+| 注解         |  描述  |
 | ------------- | -----|
-| RequiresPermissions | 需要权限才能访问这个action |
-| RequiresRoles  | 需要角色才能访问这个action|
-| RequiresAuthentication  | 需要授权才能访问这个action，即：`SecurityUtils.getSubject().isAuthenticated()` |
-| RequiresUser  | 获取到用户信息才能访问这个action，即：`SecurityUtils.getSubject().getPrincipal() != null ` |
-| RequiresGuest  | 和RequiresUser相反 |
-
+| @Application | 标识启动类 |
+| @PropertyConfiguration| 属性配置, 包括配置文件|
+| @DbConfiguration  | 多数据源配置 |
+| @DbSource  | 数据源对象|
+| @ViewConfiguration  | 视图模板配置 |
+| @EnableActiveMQPlugin  | 开启ActiveMQ插件|
+| @EnableEhcachePlugin  | 开启Ehcache插件 |
+| @EnableRedisPlugin  | 开启Redis插件|
+| @EnableSQLMapPlugin  | 开启SqlMap插件 |
 
 
 # 联系作者

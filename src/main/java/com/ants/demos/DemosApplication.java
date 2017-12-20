@@ -1,6 +1,7 @@
 package com.ants.demos;
 
 
+import com.ants.common.annotation.boot.PropertyConfiguration;
 import com.ants.common.annotation.service.Application;
 import com.ants.core.startup.JTomcat;
 
@@ -11,6 +12,7 @@ import com.ants.core.startup.JTomcat;
  * @Date 2017/12/20
  */
 @Application
+@PropertyConfiguration
 public class DemosApplication {
 
     public static void main(String[] args) {
