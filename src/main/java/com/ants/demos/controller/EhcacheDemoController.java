@@ -4,10 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.ants.common.annotation.action.Controller;
 import com.ants.common.annotation.action.GET;
 import com.ants.common.annotation.service.Autowired;
+import com.ants.plugin.cache.CacheEvict;
 import com.ants.plugin.cache.Cacheable;
 import com.ants.plugin.cache.EhCacheTpl;
 
 /**
+ * Ehcache Demo
+ * 需要在启动类配置@EnableEhcachePlugin注解
  * @author MrShun
  * @version 1.0
  * @Date 2017/12/21
@@ -64,14 +67,25 @@ public class EhcacheDemoController {
     }
 
     /**
-     * 注解式缓存
+     * 注解式存储缓存
      *
      * @return
      */
-    @GET("/anno")
+    @GET("/cacheable")
     @Cacheable
-    public Object anno() {
+    public Object cache() {
         System.out.println("测试看看是否被缓存了");
-        return "ants ehcache keys is ok!";
+        return "ants ehcache cache is ok!";
+    }
+
+    /**
+     * 注解式清除缓存
+     *
+     * @return
+     */
+    @GET("/evict")
+    @CacheEvict
+    public Object evict() {
+        return "ants ehcache evict is ok!";
     }
 }
