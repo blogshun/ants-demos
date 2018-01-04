@@ -6,14 +6,7 @@ import com.ants.common.annotation.plugin.EnableEhcachePlugin;
 import com.ants.common.annotation.plugin.EnableRedisPlugin;
 import com.ants.common.annotation.service.Application;
 import com.ants.common.bean.Prop;
-import com.ants.core.context.AntsTool;
-import com.ants.core.startup.JTomcat;
-import com.ants.plugin.cache.EhCacheTpl;
-import com.ants.plugin.cache.RedisTpl;
-import com.ants.plugin.jms.ActiveMqTpl;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.Ehcache;
-import net.sf.ehcache.Element;
+import com.ants.plugin.tool.AliOssTool;
 
 /**
  * Tomcat 方式启动
@@ -29,8 +22,8 @@ import net.sf.ehcache.Element;
 public class DemosApplication {
 
     public static void main(String[] args) throws InterruptedException {
-       // JTomcat.run(DemosApplication.class, 80);
+        // JTomcat.run(DemosApplication.class, 80);
         Prop.use("application.properties");
-        AntsTool.getAliOss("http://ants-m.oss-cn-beijing.aliyuncs.com", "LTAIGtncqJ1CaDvW", "z6RtuvVSFqcCnn3rsYT6z4L9RcwWZH");
+        AliOssTool.getAliOss("http://ants-m.oss-cn-beijing.aliyuncs.com", "LTAIGtncqJ1CaDvW", "z6RtuvVSFqcCnn3rsYT6z4L9RcwWZH");
     }
 }
