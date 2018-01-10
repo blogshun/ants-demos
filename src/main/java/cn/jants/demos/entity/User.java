@@ -1,6 +1,6 @@
-package com.ants.demos.entity;
+package cn.jants.demos.entity;
 
-import com.ants.common.annotation.action.Entity;
+import cn.jants.common.annotation.action.Entity;
 
 /**
  * @author MrShun

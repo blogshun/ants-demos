@@ -1,9 +1,9 @@
-package com.ants.demos.task;
+package cn.jants.demos.task;
 
-import com.ants.common.annotation.service.Service;
-import com.ants.common.annotation.service.Value;
-import com.ants.common.bean.Log;
-import com.ants.plugin.scheduler.FixedDelay;
+import cn.jants.common.annotation.service.Service;
+import cn.jants.common.annotation.service.Value;
+import cn.jants.common.bean.Log;
+import cn.jants.plugin.scheduler.FixedDelay;
 
 /**
  * 任务调度 Demo

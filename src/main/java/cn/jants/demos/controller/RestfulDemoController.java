@@ -1,10 +1,10 @@
-package com.ants.demos.controller;
+package cn.jants.demos.controller;
 
+import cn.jants.common.annotation.action.*;
 import com.alibaba.fastjson.JSON;
-import com.ants.common.annotation.action.*;
-import com.ants.common.bean.Log;
-import com.ants.common.enums.Regex;
-import com.ants.demos.entity.User;
+import cn.jants.common.bean.Log;
+import cn.jants.common.enums.Regex;
+import cn.jants.demos.entity.User;
 
 import javax.servlet.http.Part;
 import java.io.IOException;

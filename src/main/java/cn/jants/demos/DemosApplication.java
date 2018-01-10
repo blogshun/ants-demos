@@ -1,12 +1,12 @@
-package com.ants.demos;
+package cn.jants.demos;
 
 
-import com.ants.common.annotation.boot.PropertyConfiguration;
-import com.ants.common.annotation.plugin.EnableEhcachePlugin;
-import com.ants.common.annotation.plugin.EnableRedisPlugin;
-import com.ants.common.annotation.service.Application;
-import com.ants.common.bean.Prop;
-import com.ants.plugin.tool.AliOssTool;
+import cn.jants.common.annotation.boot.PropertyConfiguration;
+import cn.jants.common.annotation.plugin.EnableEhcachePlugin;
+import cn.jants.common.annotation.plugin.EnableRedisPlugin;
+import cn.jants.common.annotation.service.Application;
+import cn.jants.common.bean.Prop;
+import cn.jants.plugin.tool.AliOssTool;
 
 /**
  * Tomcat 方式启动

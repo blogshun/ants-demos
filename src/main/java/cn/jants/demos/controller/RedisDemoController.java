@@ -1,10 +1,10 @@
-package com.ants.demos.controller;
+package cn.jants.demos.controller;
 
-import com.ants.common.annotation.action.Controller;
-import com.ants.common.annotation.action.GET;
-import com.ants.common.annotation.action.Param;
-import com.ants.common.annotation.service.Autowired;
-import com.ants.plugin.cache.RedisTpl;
+import cn.jants.common.annotation.action.Controller;
+import cn.jants.common.annotation.action.GET;
+import cn.jants.common.annotation.action.Param;
+import cn.jants.common.annotation.service.Autowired;
+import cn.jants.plugin.cache.RedisTpl;
 
 /**
  * Redis Demo

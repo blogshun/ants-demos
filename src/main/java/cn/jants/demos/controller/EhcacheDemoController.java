@@ -1,12 +1,12 @@
-package com.ants.demos.controller;
+package cn.jants.demos.controller;
 
+import cn.jants.common.annotation.action.Controller;
+import cn.jants.common.annotation.action.GET;
+import cn.jants.common.annotation.service.Autowired;
+import cn.jants.plugin.cache.CacheEvict;
+import cn.jants.plugin.cache.Cacheable;
+import cn.jants.plugin.cache.EhCacheTpl;
 import com.alibaba.fastjson.JSON;
-import com.ants.common.annotation.action.Controller;
-import com.ants.common.annotation.action.GET;
-import com.ants.common.annotation.service.Autowired;
-import com.ants.plugin.cache.CacheEvict;
-import com.ants.plugin.cache.Cacheable;
-import com.ants.plugin.cache.EhCacheTpl;
 
 /**
  * Ehcache Demo
