@@ -1,13 +1,10 @@
 package cn.jants.demos.entity;
 
-import cn.jants.common.annotation.action.Entity;
-
 /**
  * @author MrShun
  * @version 1.0
  * @Date 2017/12/20
  */
-@Entity
 public class User {
 
     private String name;

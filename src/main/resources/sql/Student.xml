@@ -1,0 +1,227 @@
+<mapper namespace="Student">
+
+    <!--数据和实体的对应映射-->
+    <sql id="Base_Column_List">
+        id, name, logo
+    </sql>
+
+    <sql id="testInclude">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user_info
+    </sql>
+
+    <sql id="testIf">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM dgsx_student s
+        <if test="year!=null and year!=''">
+            s.fk_year = #{year}
+        </if>
+        <if test="dept!=null and dept!=''">
+            s.fk_dept = #{dept}
+        </if>
+    </sql>
+
+    <!-- //TODO selectCount 多条件数据统计-->
+    <sql id="testWhere">
+        select count(0) as count from dgsx_student
+        <where>
+            <if test="code!=null">
+                code = #{code}
+            </if>
+            <if test="id!=null and id!=''">
+                and id &lt;&gt; #{id}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 根据主键ID查询一条记录-->
+    <sql id="selectById">
+        select
+        <include refid="Base_Column_List"/>
+        from dgsx_student s where s.id = #{id}
+    </sql>
+
+    <!-- 插入不为空的字段 -->
+    <sql id="testTrim">
+        insert into dgsx_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="year != null">
+                fk_year,
+            </if>
+            <if test="dept != null">
+                fk_dept,
+            </if>
+            <if test="classes != null">
+                fk_classes,
+            </if>
+            <if test="spec != null">
+                fk_spec,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="brithday != null">
+                brithday,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="pic != null">
+                pic,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="appid != null">
+                appid,
+            </if>
+            <if test="openid != null">
+                openid,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="year != null">
+                #{year},
+            </if>
+            <if test="dept != null">
+                #{dept},
+            </if>
+            <if test="classes != null">
+                #{classes},
+            </if>
+            <if test="spec != null">
+                #{spec},
+            </if>
+            <if test="code != null">
+                #{code},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="gender != null">
+                #{gender},
+            </if>
+            <if test="brithday != null">
+                #{brithday},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="pic != null">
+                #{pic},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="appid != null">
+                #{appid},
+            </if>
+            <if test="openid != null">
+                #{openid},
+            </if>
+            <if test="version != null">
+                #{version},
+            </if>
+        </trim>
+    </sql>
+
+
+    <!-- 据主键Id修改字段不为空的数据 -->
+    <sql id="testSet">
+        update dgsx_student
+        <set>
+            <if test="year != null">
+                fk_year = #{year},
+            </if>
+            <if test="dept != null">
+                fk_dept = #{dept},
+            </if>
+            <if test="classes != null">
+                fk_classes = #{classes},
+            </if>
+            <if test="spec != null">
+                fk_spec = #{spec},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="brithday != null">
+                brithday = #{brithday},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="pic != null">
+                pic = #{pic},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="appid != null">
+                appid = #{appid},
+            </if>
+            <if test="openid != null">
+                openid = #{openid},
+            </if>
+            version=version+1
+        </set>
+        where id = #{id} and version = #{version}
+    </sql>
+
+    <sql id="testChoose">
+        select * from userinfo
+        <choose>
+            <when test="year=='department'">
+                where department=#{department}
+            </when>
+            <when test="spec=='position'">
+                where position=#{position}
+            </when>
+            <otherwise>
+                where gender=#{gender}
+            </otherwise>
+        </choose>
+    </sql>
+
+    <sql id="testForeach">
+        SELECT *
+        FROM BPM_DEF_USER
+        where RIGHT_TYPE=#{g.name}
+        and OWNER_ID in
+        <foreach collection="cx" item="id" separator="," open="(" close=")">
+            我只是测试输出 #{id}
+        </foreach>
+    </sql>
+</mapper>
