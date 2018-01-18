@@ -1,17 +1,15 @@
-<mapper namespace="Student">
+<mapper namespace="GoodsMapper">
 
     <!--数据和实体的对应映射-->
-    <sql id="Base_Column_List">
+    <column id="Base_Column_List">
         id, name, logo
-    </sql>
+    </column>
 
-    <sql id="testInclude">
-        SELECT
-        <include refid="Base_Column_List"/>
-        FROM user_info
-    </sql>
+    <select id="selectById">
+        select * from sys_user limit 1
+    </select>
 
-    <sql id="testIf">
+    <select id="testIf">
         SELECT
         <include refid="Base_Column_List"/>
         FROM dgsx_student s
@@ -21,10 +19,10 @@
         <if test="dept!=null and dept!=''">
             s.fk_dept = #{dept}
         </if>
-    </sql>
+    </select>
 
     <!-- //TODO selectCount 多条件数据统计-->
-    <sql id="testWhere">
+    <select id="testWhere">
         select count(0) as count from dgsx_student
         <where>
             <if test="code!=null">
@@ -34,17 +32,11 @@
                 and id &lt;&gt; #{id}
             </if>
         </where>
-    </sql>
+    </select>
 
-    <!-- 根据主键ID查询一条记录-->
-    <sql id="selectById">
-        select
-        <include refid="Base_Column_List"/>
-        from dgsx_student s where s.id = #{id}
-    </sql>
 
     <!-- 插入不为空的字段 -->
-    <sql id="testTrim">
+    <insert id="testTrim">
         insert into dgsx_student
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -146,11 +138,11 @@
                 #{version},
             </if>
         </trim>
-    </sql>
+    </insert>
 
 
     <!-- 据主键Id修改字段不为空的数据 -->
-    <sql id="testSet">
+    <update id="testSet">
         update dgsx_student
         <set>
             <if test="year != null">
@@ -198,9 +190,9 @@
             version=version+1
         </set>
         where id = #{id} and version = #{version}
-    </sql>
+    </update>
 
-    <sql id="testChoose">
+    <select id="testChoose">
         select * from userinfo
         <choose>
             <when test="year=='department'">
@@ -213,9 +205,9 @@
                 where gender=#{gender}
             </otherwise>
         </choose>
-    </sql>
+    </select>
 
-    <sql id="testForeach">
+    <select id="testForeach">
         SELECT *
         FROM BPM_DEF_USER
         where RIGHT_TYPE=#{g.name}
@@ -223,5 +215,5 @@
         <foreach collection="cx" item="id" separator="," open="(" close=")">
             我只是测试输出 #{id}
         </foreach>
-    </sql>
+    </select>
 </mapper>

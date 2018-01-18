@@ -10,9 +10,13 @@ import cn.jants.common.annotation.plugin.EnableEhcachePlugin;
 import cn.jants.common.annotation.plugin.EnableRedisPlugin;
 import cn.jants.common.annotation.plugin.EnableSQLMapPlugin;
 import cn.jants.common.annotation.service.Application;
+import cn.jants.common.annotation.service.Autowired;
 import cn.jants.common.annotation.service.Source;
+import cn.jants.common.bean.JsonMap;
+import cn.jants.core.proxy.JdkProxy;
 import cn.jants.core.startup.JTomcat;
 import cn.jants.demos.entity.User;
+import cn.jants.demos.mapper.GoodsMapper;
 import cn.jants.plugin.db.Db;
 import com.alibaba.fastjson.JSON;
 
@@ -36,12 +40,13 @@ public class DemosApplication {
     @Source
     private Db db;
 
+    @Autowired
+    private GoodsMapper goodsMapper;
+
     @PUT("/test")
     public Object test(User user) {
-        System.out.println(JSON.toJSONString(user));
-        List list = db.findList("Student.testInclude");
-        System.out.println(list);
-        return list;
+        JsonMap jsonMap = goodsMapper.selectById();
+        return jsonMap;
     }
 
     public static void main(String[] args) throws InterruptedException {
