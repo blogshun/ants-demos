@@ -50,6 +50,6 @@ public class DemosApplication {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        JTomcat.run(DemosApplication.class, 80);
+       // JTomcat.run(DemosApplication.class, 80);
     }
 }

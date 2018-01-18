@@ -2,8 +2,12 @@ package cn.jants.demos.controller;
 
 import cn.jants.common.annotation.action.Controller;
 import cn.jants.common.annotation.action.GET;
+import cn.jants.common.annotation.action.POST;
+import cn.jants.common.annotation.action.Param;
 import cn.jants.common.annotation.service.Autowired;
+import cn.jants.demos.entity.User;
 import cn.jants.plugin.cache.CacheEvict;
+import cn.jants.plugin.cache.CachePut;
 import cn.jants.plugin.cache.Cacheable;
 import cn.jants.plugin.cache.EhCacheTpl;
 import com.alibaba.fastjson.JSON;
@@ -72,10 +76,20 @@ public class EhcacheDemoController {
      * @return
      */
     @GET("/cacheable")
-    @Cacheable
-    public Object cache() {
+    @Cacheable(key = "details#id")
+    public Object cache(@Param String id) {
         System.out.println("测试看看是否被缓存了");
         return "ants ehcache cache is ok!";
+    }
+    /**
+     * 注解式更新缓存
+     *
+     * @return
+     */
+    @POST("/put")
+    @CachePut(key = "details#user.id")
+    public Object put(User user) {
+        return "ants ehcache put is ok!";
     }
 
     /**

@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "v1.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="GoodsMapper">
 
     <!--数据和实体的对应映射-->
-    <column id="Base_Column_List">
+    <sql id="Base_Column_List">
         id, name, logo
-    </column>
+    </sql>
 
     <select id="selectById">
         select * from sys_user limit 1
