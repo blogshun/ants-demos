@@ -7,7 +7,7 @@
         id, name, logo
     </sql>
 
-    <select id="selectById">
+    <select id="selectById" resultType="">
         select * from sys_user limit 1
     </select>
 

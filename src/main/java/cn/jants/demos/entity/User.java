@@ -1,11 +1,16 @@
 package cn.jants.demos.entity;
 
+import cn.jants.common.bean.JsonMap;
+import cn.jants.demos.enums.Sex;
+
+import java.util.List;
+
 /**
  * @author MrShun
  * @version 1.0
  * @Date 2017/12/20
  */
-public class User {
+public class User{
 
     private Long id;
 
@@ -14,6 +19,10 @@ public class User {
     private Integer age;
 
     private String sex;
+
+    private Sex sx;
+
+    private List<JsonMap> jsonMapList;
 
     public Long getId() {
         return id;
@@ -45,5 +54,21 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Sex getSx() {
+        return sx;
+    }
+
+    public void setSx(Sex sx) {
+        this.sx = sx;
+    }
+
+    public List<JsonMap> getJsonMapList() {
+        return jsonMapList;
+    }
+
+    public void setJsonMapList(List<JsonMap> jsonMapList) {
+        this.jsonMapList = jsonMapList;
     }
 }
