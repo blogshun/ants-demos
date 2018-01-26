@@ -1,10 +1,8 @@
 package cn.jants.demos.mapper;
 
-import cn.jants.common.annotation.service.Mapper;
 import cn.jants.common.bean.JsonMap;
 import cn.jants.demos.entity.User;
-
-import java.util.List;
+import cn.jants.plugin.sqlmap.annotation.Mapper;
 
 /**
  * @author MrShun
@@ -14,11 +12,8 @@ import java.util.List;
 @Mapper
 public interface GoodsMapper {
 
-    JsonMap selectById();
+    User selectById(Long id);
 
-    List<User> selectList();
+    JsonMap selectList();
 
-    User select();
-
-    void deleteById(Long id);
 }

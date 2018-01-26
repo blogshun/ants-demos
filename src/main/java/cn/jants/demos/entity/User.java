@@ -1,8 +1,8 @@
 package cn.jants.demos.entity;
 
 import cn.jants.common.bean.JsonMap;
-import cn.jants.demos.enums.Sex;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,19 +10,21 @@ import java.util.List;
  * @version 1.0
  * @Date 2017/12/20
  */
-public class User{
+public class User {
 
     private Long id;
 
-    private String name;
+    private String account;
 
-    private Integer age;
+    private Integer sex;
 
-    private String sex;
+    private Date posTime;
 
-    private Sex sx;
+    private List<String> strList;
 
     private List<JsonMap> jsonMapList;
+
+    private List<Integer> intList;
 
     public Long getId() {
         return id;
@@ -32,43 +34,27 @@ public class User{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAccount() {
+        return account;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
-    public Sex getSx() {
-        return sx;
+    public Date getPosTime() {
+        return posTime;
     }
 
-    public void setSx(Sex sx) {
-        this.sx = sx;
-    }
-
-    public List<JsonMap> getJsonMapList() {
-        return jsonMapList;
-    }
-
-    public void setJsonMapList(List<JsonMap> jsonMapList) {
-        this.jsonMapList = jsonMapList;
+    public void setPosTime(Date posTime) {
+        this.posTime = posTime;
     }
 }

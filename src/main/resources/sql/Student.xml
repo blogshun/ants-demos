@@ -2,13 +2,18 @@
 <!DOCTYPE mapper PUBLIC "v1.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="GoodsMapper">
 
+    <resultType id="user" type="cn.jants.demos.entity.User" />
+
     <!--数据和实体的对应映射-->
     <sql id="Base_Column_List">
         id, name, logo
     </sql>
+    <select id="selectById" resultType="user">
+        select * from sys_user where id = #{id}
+    </select>
 
-    <select id="selectById" resultType="">
-        select * from sys_user limit 1
+    <select id="selectPage">
+        select * from sys_user
     </select>
 
     <select id="testIf">
@@ -218,4 +223,8 @@
             我只是测试输出 #{id}
         </foreach>
     </select>
+
+    <update id="update">
+        update sys_user set sex = 0 where id = #{id}
+    </update>
 </mapper>
