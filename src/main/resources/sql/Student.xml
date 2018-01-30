@@ -30,7 +30,7 @@
 
     <!-- //TODO selectCount 多条件数据统计-->
     <select id="testWhere">
-        select count(0) as count from dgsx_student
+        select count(1) as count from dgsx_student
         <where>
             <if test="code!=null">
                 code = #{code}
