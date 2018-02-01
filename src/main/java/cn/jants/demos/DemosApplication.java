@@ -5,23 +5,20 @@ import cn.jants.common.annotation.action.Controller;
 import cn.jants.common.annotation.action.GET;
 import cn.jants.common.annotation.action.PathVariable;
 import cn.jants.common.annotation.boot.PropertyConfiguration;
+import cn.jants.common.annotation.plugin.EnableActiveMQPlugin;
 import cn.jants.common.annotation.plugin.EnableEhcachePlugin;
 import cn.jants.common.annotation.plugin.EnableRedisPlugin;
 import cn.jants.common.annotation.plugin.EnableSQLMapPlugin;
-import cn.jants.common.annotation.service.Aop;
 import cn.jants.common.annotation.service.Application;
 import cn.jants.common.annotation.service.Autowired;
 import cn.jants.common.annotation.service.Source;
 import cn.jants.core.context.AppConfiguration;
-import cn.jants.core.module.InterceptorManager;
 import cn.jants.core.startup.JTomcat;
-import cn.jants.demos.Interceptor.TestInterceptor;
 import cn.jants.demos.entity.User;
 import cn.jants.demos.mapper.GoodsMapper;
 import cn.jants.plugin.db.Db;
 import cn.jants.restful.render.Json;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**
@@ -37,7 +34,7 @@ import java.util.Map;
 @EnableRedisPlugin
 @EnableSQLMapPlugin(value = "/sql", hump = true)
 @Controller
-public class DemosApplication extends AppConfiguration{
+public class DemosApplication extends AppConfiguration {
 
     @Source
     private Db db;
@@ -51,9 +48,9 @@ public class DemosApplication extends AppConfiguration{
         return Json.success(jsonMaps);
     }
 
-    @Override
-    public void configInterceptor(InterceptorManager interceptors) {
-
+    @GET("/test")
+    public Map testOk() {
+        return Json.success("ok");
     }
 
     public static void main(String[] args) {
